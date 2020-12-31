@@ -29,7 +29,7 @@ function dutchFlagSort(arr) {
   }
 }
 
-// Test
+// test
 let arr = [1, 0, 2, 1, 0, 2];
 dutchFlagSort(arr);
 console.log(arr);
