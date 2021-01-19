@@ -17,7 +17,18 @@ iterate thru arr (starting i at num)
  */
 
 function maxSubarraySum(arr, n) {
-  let sum = 0;
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < n) return null;
+  for (let i = 0; i < n; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = n; i < arr.length; i++) {
+    tempSum = tempSum + arr[i] - arr[i - n];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
 }
 
 console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2)); // 10
@@ -27,7 +38,7 @@ console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 4)); // 17
 L  R
  [1, 2, 5, 2, 8, 1, 5] -----> 10
 
-  L        R
+     L        R
  [1, 2, 5, 2, 8, 1, 5] -----> 17
 
 */
