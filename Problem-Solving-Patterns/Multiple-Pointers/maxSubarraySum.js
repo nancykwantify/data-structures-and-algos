@@ -6,7 +6,13 @@ make max sum variable
 make temp sum variable
 check arr length if longer than num // return null
 iterate thru num
-max sum + arr[i]
+    max sum + arr[i]
+
+temp sum = max sum
+iterate thru arr (starting i at num)
+    add one to right
+    minus one from left
+    find max and return
 
  */
 
@@ -21,7 +27,7 @@ console.log(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 4)); // 17
 L  R
  [1, 2, 5, 2, 8, 1, 5] -----> 10
 
-         L        R
+  L        R
  [1, 2, 5, 2, 8, 1, 5] -----> 17
 
 */
