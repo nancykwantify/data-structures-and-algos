@@ -18,8 +18,8 @@ console.log(countUniqueValues([1, 2, 2, 2, 3]));
 
 /*
 
-          i
-[1, 2, 3, 4, 3, 4]         //should return 6
+           i
+[1, 3, 4, 5, 5, 5]         //should return 4
                 j
 */
 
