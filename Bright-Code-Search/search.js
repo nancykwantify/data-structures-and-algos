@@ -37,10 +37,29 @@ let obj = {
     //// DO NOT NEED TO EDIT ////
   },
   binaryRecursive: function () {
-    console.log("test");
+    // Find the middle index
+    // Check if the start index is greater than the end index
+    // Return -1
+    // Check value of middle index and see if it's equal to the value we're trying to find
+    // Return the middle index
+    // If the value we're trying to find is less than the value that is in the position of the middle index
+    // Recursive call setting new start index and end index values
+    // If the value we're trying to find is greater than the value that is in the position of the middle index
+    // Recursive call setting new start index and end index values
+    // console.log("Current array elements: ", arr.slice(startIndex, endIndex+1)); // Helpful printing to see what the current array elements are in this method call
   },
   binaryIterative: function () {
-    console.log("test2");
+    // Initially set start value
+    // Initially set end value to the last index in the array
+    // While the start value is less than or equal to the end value
+    // Find the middle index
+    // Check value of the middle index and see if it's equal to the value we're trying to find
+    // Return the middle index
+    // If the value we're trying to find is greater than the value that is in the position of the middle index
+    // Set start index to the middle index plus one
+    // Otherwise
+    // Set end index to the middle index minus one
+    // Return -1
   },
   exponentialIterative: function () {},
   exponentialRecursive: function () {},
