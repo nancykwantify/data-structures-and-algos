@@ -47,6 +47,23 @@ let obj = {
     // If the value we're trying to find is greater than the value that is in the position of the middle index
     // Recursive call setting new start index and end index values
     // console.log("Current array elements: ", arr.slice(startIndex, endIndex+1)); // Helpful printing to see what the current array elements are in this method call
+
+    let mid = Math.floor((start + end) / 2); // Find the middle index
+    if (start > end) {
+      // Check if the start index is greater than the end index
+      return -1; // Return -1
+    }
+    if (valueToFind === arr[mid]) {
+      // Check value of middle index and see if it's equal to the value we're trying to find
+      return mid; // Return the middle index
+    } else if (valueToFind > arr[mid]) {
+      // If the value we're trying to find is less than the value that is in the position of the middle index
+      return this.binaryRecursive(arr, valueToFind, mid + 1, end); // Recursive call setting new start index and end index values
+    } else if (valueToFind < arr[mid]) {
+      // If the value we're trying to find is greater than the value that is in the position of the middle index
+      return this.binaryRecursive(arr, valueToFind, start, mid - 1); // Recursive call setting new start index and end index values
+    }
+    // console.log("Current array elements: ", arr.slice(startIndex, endIndex+1)); // Helpful printing to see what the current array elements are in this method call
   },
   binaryIterative: function () {
     // Initially set start value
