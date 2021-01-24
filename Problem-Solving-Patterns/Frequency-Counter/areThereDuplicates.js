@@ -39,14 +39,29 @@ return false
 console.log(areThereDuplicates("a", "b", "c", "a")); // true
 
 // FREQUENCY COUNTER
-function areThereDuplicates() {
-  let collection = {};
-  for (let val in arguments) {
-    collection[arguments[val]] = (collection[arguments[val]] || 0) + 1;
-  }
+// function areThereDuplicates() {
+//   let collection = {};
+//   for (let val in arguments) {
+//     collection[arguments[val]] = (collection[arguments[val]] || 0) + 1;
+//   }
 
-  for (let key in collection) {
-    if (collection[key] > 1) return true;
+//   for (let key in collection) {
+//     if (collection[key] > 1) return true;
+//   }
+//   return false;
+// }
+
+// MULTIPLE COUNTERS
+function areThereDuplicates(...args) {
+  args.sort((a, b) => a > b);
+  let startIdx = 0;
+  let nextIdx = 1;
+  while (nextIdx < args.length) {
+    if (args[startIdx] === args[nextIdx]) {
+      return true;
+    }
+    startIdx++;
+    nextIdx++;
   }
   return false;
 }
