@@ -1,37 +1,35 @@
+function minSubArrayLen(arr, num) {}
 
-
-
-function minSubArrayLen(arr, num) {
-
-
-
-}
-
-console.log(minSubArrayLen([2,3,1,2,4,3], 7)) //2 bc [4,3] smales subarray
-console.log(minSubArrayLen([2,1,6,5,4], 9)) // 2 bc [5,4] is smallest subarray
-
-
-
-
-
-
-
-
+// TEST
+console.log(minSubArrayLen([2, 3, 1, 2, 4, 3], 7)); //2 bc [4,3] smales subarray
+console.log(minSubArrayLen([2, 1, 6, 5, 4], 9)); // 2 bc [5,4] is smallest subarray
 
 // SOLUTION
-maxSubArray Solution
-function maxSubarraySum(arr, num){
-    if (arr.length < num) return null;
- 
-    let total = 0;
-    for (let i=0; i<num; i++){
-       total += arr[i];
+function minSubArrayLen(nums, sum) {
+  let total = 0;
+  let start = 0;
+  let end = 0;
+  let minLen = Infinity;
+
+  while (start < nums.length) {
+    // if current window doesn't add up to the given sum then
+    // move the window to right
+    if (total < sum && end < nums.length) {
+      total += nums[end];
+      end++;
     }
-    let currentTotal = total;
-    for (let i = num; i < arr.length; i++) {
-       currentTotal += arr[i] - arr[i-num];
-       total = Math.max(total, currentTotal);
+    // if current window adds up to at least the sum given then
+    // we can shrink the window
+    else if (total >= sum) {
+      minLen = Math.min(minLen, end - start);
+      total -= nums[start];
+      start++;
     }
-    return total;
+    // current total less than required total but we reach the end, need this or else we'll be in an infinite loop
+    else {
+      break;
+    }
+  }
+
+  return minLen === Infinity ? 0 : minLen;
 }
-minSubArrayLen Solution
