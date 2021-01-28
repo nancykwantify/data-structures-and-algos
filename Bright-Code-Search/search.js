@@ -78,7 +78,7 @@ let obj = {
     // Set end index to the middle index minus one
     // Return -1
   },
-  exponentialIterative: function () {
+  exponentialIterative: function (arr, valueToFind) {
     // If the first value in the array is the value you're looking
     // Return 0
 
@@ -105,7 +105,7 @@ let obj = {
       Math.min(i, arr.length - 1)
     ); // Use binary search to find the value
   },
-  exponentialRecursive: function () {
+  exponentialRecursive: function (arr, valueToFind, i = 1) {
     // If the first value in the array is the value you're looking (Base Case)
     // Return 0
 
