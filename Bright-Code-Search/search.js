@@ -78,8 +78,41 @@ let obj = {
     // Set end index to the middle index minus one
     // Return -1
   },
-  exponentialIterative: function () {},
+  exponentialIterative: function () {
+    // If the first value in the array is the value you're looking
+    // Return 0
+
+    // Initialize i to one
+    // While i less than the length of the array and the element value at
+    // position i is less than the value we're looking for
+    // Double the value of i
+
+    // Use binary search to find the value
+    if (valueToFind == arr[0]) {
+      // If the first value in the array is the value you're looking
+      return 0; // Return 0
+    }
+    let i = 1; // Initialize i to one
+    // While i less than the length of the array and the element value at
+    // position i is less than the value we're looking for
+    while (i < arr.length && valueToFind >= arr[i]) {
+      i *= 2; // Double the value of i
+    }
+    return this.binaryRecursive(
+      arr,
+      valueToFind,
+      i / 2,
+      Math.min(i, arr.length - 1)
+    ); // Use binary search to find the value
+  },
   exponentialRecursive: function () {
+    // If the first value in the array is the value you're looking (Base Case)
+    // Return 0
+
+    // While i less than the length of the array and the element value at
+    // position i is less than the value we're looking for
+    // Recursive call passing the double of i
+    // Use binary search to find the value
     if (valueToFind == arr[0]) {
       // If the first value in the array is the value you're looking
       return 0; // Return 0
