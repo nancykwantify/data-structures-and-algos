@@ -130,8 +130,38 @@ let obj = {
       Math.min(i, arr.length - 1)
     ); // Use binary search to find the value
   },
-  linearRecursive: function () {},
-  linearIterative: function () {},
+  linearRecursive: function (arr, valueToFind, start = 0) {
+    // Check if the start index is greater then or equal to the final index in the array
+    // Return -1
+    // If the value of the start index is equal to the value you're looking for
+    // Return start index
+    // Recursive call setting a new start value
+    if (start > arr.length - 1) {
+      // Check if the start index is greater then or equal to the final index in the array
+      return -1; // Return -1
+    }
+    if (valueToFind === arr[start]) {
+      // If the value of the start index is equal to the value you're looking for
+      return start; // Return start index
+    } else {
+      return this.linearRecursive(arr, valueToFind, start + 1); // Recursive call setting a new start value
+    }
+  },
+  linearIterative: function (arr, valueToFind) {
+    // Iterate through the given array
+    // Check during each iteration, if the current value is equal to the value you're looking for
+    // Return the current index
+    // Return -1 if not found
+
+    for (let i = 0; i < arr.length; i++) {
+      // Iterate through the given array
+      if (valueToFind === arr[i]) {
+        // Check during each iteration, if the current value is equal to the value you're looking for
+        return i; // Return the current index
+      }
+    }
+    return -1; // Return -1 if not found
+  },
   jumpIterative: function () {},
   interpolationIterative: function () {},
   interpolationRecursive: function () {},
