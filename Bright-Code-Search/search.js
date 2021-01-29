@@ -36,7 +36,12 @@ let obj = {
     console.log(result);
     //// DO NOT NEED TO EDIT ////
   },
-  binaryRecursive: function () {
+  binaryRecursive: function (
+    arr,
+    valueToFind,
+    start = 0,
+    end = arr.length - 1
+  ) {
     // Find the middle index
     // Check if the start index is greater than the end index
     // Return -1
@@ -65,7 +70,7 @@ let obj = {
     }
     // console.log("Current array elements: ", arr.slice(startIndex, endIndex+1)); // Helpful printing to see what the current array elements are in this method call
   },
-  binaryIterative: function () {
+  binaryIterative: function (arr, valueToFind) {
     // Initially set start value
     // Initially set end value to the last index in the array
     // While the start value is less than or equal to the end value
@@ -77,6 +82,25 @@ let obj = {
     // Otherwise
     // Set end index to the middle index minus one
     // Return -1
+
+    // console.log("Current array elements: ", arr.slice(startIndex, endIndex+1)); // Helpful printing to see what the current array elements are in this method call
+    let start = 0; // Initially set start value
+    let end = arr.length - 1; // Initially set end value to the last index in the array
+    while (start <= end) {
+      // While the start value is less than or equal to the end value
+      let mid = Math.floor((start + end) / 2); // Find the middle index
+      if (valueToFind === arr[mid]) {
+        // Check value of the middle index and see if it's equal to the value we're trying to find
+        return mid; // Return the middle index
+      } else if (valueToFind > arr[mid]) {
+        // If the value we're trying to find is greater than the value that is in the position of the middle index
+        start = mid + 1; // Set start index to the middle index plus one
+      } else if (valueToFind < arr[mid]) {
+        // Otherwise
+        end = mid - 1; // Set end index to the middle index minus one
+      }
+    }
+    return -1; // Return -1
   },
   exponentialIterative: function (arr, valueToFind) {
     // If the first value in the array is the value you're looking
