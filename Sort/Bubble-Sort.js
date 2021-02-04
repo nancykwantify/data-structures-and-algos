@@ -35,3 +35,25 @@ function bubbleSort(arr) {
 console.log(bubbleSort([37, 45, 29, 8, 12, 88, -3]));
 
 // 0(n^2) 2 loops without noSwap
+
+function bubbleSort(arr) {
+  let isSorted = false;
+  let counter = 0;
+  while (!isSorted) {
+    isSorted = true;
+    for (let i = 0; i < arr.length - 1 - counter; i++) {
+      if (arr[i] > arr[i + 1]) {
+        swap(i, i + 1, arr);
+        isSorted = false;
+      }
+    }
+    counter++;
+  }
+  return arr;
+}
+
+function swap(i, j, arr) {
+  const temp = arr[j];
+  arr[j] = arr[i];
+  arr[i] = temp;
+}
