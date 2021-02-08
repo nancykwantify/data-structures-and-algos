@@ -27,3 +27,23 @@ function selectionSort(arr) {
 }
 
 console.log(selectionSort([34, 22, 10, 19, 17]));
+
+// solution with helper
+function selectionSort(arr) {
+  let startIdx = 0;
+  while (startIdx < arr.length - 1) {
+    let smallestIdx = startIdx;
+    for (let i = startIdx + 1; i < arr.length; i++) {
+      if (arr[smallestIdx] > arr[i]) smallestIdx = i;
+    }
+    swap(startIdx, smallestIdx, array);
+    startIdx++;
+  }
+  return arr;
+}
+
+function swap(i, j, arr) {
+  let temp = arr[j];
+  arr[j] = arr[i];
+  arr[i] = temp;
+}
