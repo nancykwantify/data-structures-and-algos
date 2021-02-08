@@ -27,3 +27,21 @@ function insertionSort(arr) {
 }
 
 console.log(insertionSort([2, 1, 9, 76, 4]));
+
+// Solution with helper
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let j = i;
+    while (j > 0 && arr[j] < arr[j - 1]) {
+      swap(j, j - 1, arr);
+      j -= 1;
+    }
+  }
+  return arr;
+}
+
+function swap(i, j, arr) {
+  const temp = arr[i];
+  arr[j] = arr[i];
+  arr[i] = temp;
+}
