@@ -56,11 +56,29 @@ class SinglyLinkedList {
       this.head = newNode;
       this.tail = newNode;
     } else {
-    newNode.next = this.head;
-    this.head = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
     }
-  this.length++;
-  return this;
+    this.length++;
+    return this;
+  }
+
+  get(idx) {
+    if (idx < 0 || idx >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== idx) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+  set(idx, val) {
+    let foundNode = this.get(idx);
+    if (!foundNode) return false;
+    foundNode.val = val;
+    return true;
+  }
 }
 
 let list = new SinglyLinkedList();
