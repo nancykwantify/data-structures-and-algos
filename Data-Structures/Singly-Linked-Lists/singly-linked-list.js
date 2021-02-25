@@ -40,13 +40,36 @@ class SinglyLinkedList {
     }
     return current;
   }
+  shift() {
+    // remove from beginning
+    if (!this.head) return undefined;
+    let curHead = this.head;
+    this.head = curHead.next;
+    this.length--;
+    console.log(curHead);
+    return curHead;
+  }
+  unshift(val) {
+    // add to beginning
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+    newNode.next = this.head;
+    this.head = newNode;
+    }
+  this.length++;
+  return this;
 }
 
 let list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("!");
-list.pop();
+list.unshift("hehihihiihi");
+
+// list.shift();
 console.log(list);
 
 // HELLO -> GOODBYE -> !
