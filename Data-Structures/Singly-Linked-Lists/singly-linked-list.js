@@ -31,6 +31,14 @@ class SinglyLinkedList {
       newTail = current;
       current = current.next;
     }
+    this.tail = newTail;
+    this.tail.next = null; // gets rid of arrow
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
   }
 }
 
@@ -38,7 +46,9 @@ let list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("!");
+list.pop();
+console.log(list);
 
 // HELLO -> GOODBYE -> !
-//  cur
-// newT
+//                    cur
+//           newT
